@@ -4,7 +4,7 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.metrics import accuracy_score, roc_auc_score, classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
@@ -65,14 +65,16 @@ def build_preprocessor(X: pd.DataFrame) -> ColumnTransformer:
 def build_model_pipeline(X: pd.DataFrame) -> Pipeline:
     """
     Build the full preprocessing + model pipeline.
+
+    Uses HistGradientBoostingClassifier as a stronger tabular baseline.
     """
     preprocessor = build_preprocessor(X)
 
-    clf = LogisticRegression(
-        max_iter=1000,
-        class_weight="balanced",
+    clf = HistGradientBoostingClassifier(
+        max_depth=None,
+        learning_rate=0.1,
+        max_iter=200,
         random_state=RANDOM_STATE,
-        n_jobs=None,
     )
 
     model = Pipeline(
