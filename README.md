@@ -24,6 +24,7 @@ Subscription-based businesses need to identify which customers are likely to chu
 - pytest
 
 ## Project Structure
+
 churn-risk-service/
 ├── configs/
 │   └── mlflow.yaml
