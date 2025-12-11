@@ -48,9 +48,13 @@ Note: dataset, model artifacts, and MLflow runs are not committed — directorie
 
 ## Setup
 git clone https://github.com/connorkozlowski1/churn-risk-service.git
+
 cd churn-risk-service
+
 python -m venv .venv
+
 .venv\Scripts\activate
+
 pip install -r requirements.txt
 
 ## Training the Model
