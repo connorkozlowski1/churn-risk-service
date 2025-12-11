@@ -14,27 +14,25 @@ client = TestClient(app)
 
 def test_predict_endpoint_returns_valid_response():
     payload = {
-        "data": {
-            "gender": "Female",
-            "SeniorCitizen": 0,
-            "Partner": "Yes",
-            "Dependents": "No",
-            "tenure": 5,
-            "PhoneService": "Yes",
-            "MultipleLines": "No",
-            "InternetService": "Fiber optic",
-            "OnlineSecurity": "No",
-            "OnlineBackup": "No",
-            "DeviceProtection": "No",
-            "TechSupport": "No",
-            "StreamingTV": "Yes",
-            "StreamingMovies": "Yes",
-            "Contract": "Month-to-month",
-            "PaperlessBilling": "Yes",
-            "PaymentMethod": "Electronic check",
-            "MonthlyCharges": 70.0,
-            "TotalCharges": 300.0,
-        }
+        "gender": "Female",
+        "SeniorCitizen": 0,
+        "Partner": "Yes",
+        "Dependents": "No",
+        "tenure": 5,
+        "PhoneService": "Yes",
+        "MultipleLines": "No",
+        "InternetService": "Fiber optic",
+        "OnlineSecurity": "No",
+        "OnlineBackup": "No",
+        "DeviceProtection": "No",
+        "TechSupport": "No",
+        "StreamingTV": "Yes",
+        "StreamingMovies": "Yes",
+        "Contract": "Month-to-month",
+        "PaperlessBilling": "Yes",
+        "PaymentMethod": "Electronic check",
+        "MonthlyCharges": 70.0,
+        "TotalCharges": 300.0,
     }
 
     response = client.post("/predict", json=payload)
@@ -49,7 +47,7 @@ def test_predict_endpoint_returns_valid_response():
 
 
 def test_predict_endpoint_rejects_bad_payload():
-    # Missing required 'data' field
+    # Missing required fields
     bad_payload = {}
 
     response = client.post("/predict", json=bad_payload)
