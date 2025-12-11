@@ -24,7 +24,7 @@ Subscription-based businesses need to identify which customers are likely to chu
 - pytest
 
 ## Project Structure
-
+```text
 churn-risk-service/
 ├── configs/
 │   └── mlflow.yaml
@@ -44,6 +44,7 @@ churn-risk-service/
 ├── requirements.txt
 ├── LICENSE
 └── README.md
+```
 
 Note: dataset, model artifacts, and MLflow runs are not committed — directories like data/, models/, and mlruns/ are created at runtime as needed.
 
